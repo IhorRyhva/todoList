@@ -1,5 +1,4 @@
 FROM eclipse-temurin:17-jdk-alpine
-LABEL authors="Admin"
 
 VOLUME /tmp
 COPY target/*.jar app.jar
