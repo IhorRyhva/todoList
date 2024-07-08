@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="alert alert-info mt-2">
+        <span>Task (</span>
+        <span th:text="${message.getMessage()}"/>
+        <span>) Time: </span>
+        <span th:text="${message.getDate()}"/>
+
+        <form th:action="'/todoList/AllNote/' + ${message.getId()} + '/remove'" method="post">
+            <a th:href="'/todoList/AllNote/' + ${message.getId()} + '/edit'" class="btn btn-warning" th:color="Orange">Edit</a>
+            <button class="btn btn-warning" type="submit">Remove</button>
+        </form>
+      </div>
+    </div>
+  </a>
+  </body>
+</html>

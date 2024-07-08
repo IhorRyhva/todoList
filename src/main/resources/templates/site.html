@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns:th="http://www.thymeleaf.org">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+    }
+
+    .add-task {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .menu {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #333;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      position: relative;
+    }
+
+    .menu-item:hover, .menu-item.active {
+      background-color: #f0f0f0;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    .count {
+      background-color: #f0f0f0;
+      color: #333;
+      border-radius: 12px;
+      padding: 2px 6px;
+      font-size: 12px;
+      margin-left: auto;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const todoForm = document.getElementById('todo-form');
+      const todoInput = document.getElementById('todo-input');
+      const todoList = document.getElementById('todo-list');
+
+      todoForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        addTodo(todoInput.value);
+        todoInput.value = '';
+      });
+
+      function addTodo(todo) {
+        const li = document.createElement('li');
+        li.textContent = todo;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete');
+        deleteBtn.addEventListener('click', function() {
+          li.remove();
+        });
+
+        li.appendChild(deleteBtn);
+        todoList.appendChild(li);
+      }
+    });
+
+  </script>
+</head>
+
+<body>
+<div class="sidebar">
+    <div th:insert="fragments/sidebar :: sidebar"></div>
+</div>
+</body>
+</html>

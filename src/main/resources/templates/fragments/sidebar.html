@@ -1,0 +1,36 @@
+<div th:fragment="sidebar">
+  <a href="/todoList/add">
+    <button class="add-task">+ Add task</button>
+  </a>
+  <div class="search">
+    <input type="text" placeholder="Search">
+  </div>
+  <div class="menu">
+    <a href="/todoList/todayTask">
+      <div class="menu-item">
+        <span class="icon">📅</span>
+        <span>Today</span>
+      </div>
+    </a>
+
+    <a href="/todoList/Upcoming">
+      <div class="menu-item">
+        <span class="icon">🔜</span>
+        <span>Upcoming</span>
+      </div>
+    </a>
+
+    <a href="/todoList/AllNote">
+      <div class="menu-item">
+        <span class="icon">📝</span>
+        <span class="menu-item">All note</span>
+      </div>
+    </a>
+    <a href="/todoList/done">
+      <div class="menu-item">
+        <span class="icon">✅</span>
+        <span class="menu-item">Done note</span>
+      </div>
+    </a>
+  </div>
+</div>
